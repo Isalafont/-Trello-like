@@ -1,0 +1,19 @@
+
+<p id="notice"><%= notice %></p>
+<div class="list-header container-fluid">
+  <h1>Lists</h1>
+
+  <%= link_to 'New List', new_list_path %>
+
+  <hr />
+</div>
+
+<div class="row container-fluid">
+  <% @lists.each do |list| %>
+    <div class="col-3">
+      <h5><%= list.name %></h5>
+    </div>
+  <% end %>
+</div>
+
+
