@@ -23,12 +23,29 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-import "bootstrap";
+import "bootstrap"
+
+import TurbolinksAdapter from 'vue-turbolinks'
+import Vue from "vue/dist/vue.esm"
+import App from "../app.vue"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+Vue.use(TurbolinksAdapter)
+
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+//   // Call your functions here, e.g:
+//   // initSelect2();
+  var element = document.querySelector("#boards")
+  if (element != undefined) {
+    const app = new Vue({
+      el: element,
+      data: {
+        lists: JSON.parse(element.dataset.lists)
+      },
+      template: "<App :original_lists='lists' />",
+      components: { App }
+    })
+  }
 });
