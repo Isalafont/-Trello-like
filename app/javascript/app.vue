@@ -39,7 +39,7 @@
           dataType: "json",
           success: (data) => {
             const index = this.lists.findIndex(item => item.id == list_id)
-            this.lists[index].push(data)
+            this.lists[index].cards.push(data)
             this.messages[list_id] = undefined
           }
         })
