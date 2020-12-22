@@ -61,6 +61,11 @@ class ListsController < ApplicationController
     end
   end
 
+  def move
+    @list.insert_at(list_params[:position].to_i)
+    render action: :show
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list

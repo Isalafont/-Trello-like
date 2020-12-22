@@ -1,5 +1,5 @@
 <template>
-  <draggable class="row">
+  <draggable :list="lists" v-bind="{group: 'lists'}" class="row dragArea" @end="listMoved">
     <div v-for="(list, index) in original_lists" class="col-3">
       <h6>{{ list.name }}</h6>
       <hr />
@@ -31,6 +31,19 @@ import draggable from 'vuedraggable';
     },
 
     methods: {
+      listMoved: function(event) {
+        console.log(event)
+        var data = new FormData
+        data.append("list[position]", event.newIndex + 1)
+
+        Rails.ajax({
+          url: `/list/${this.lists[event.newIndex].id}/move`,
+          type: "PATCH",
+          data: data,
+          dataType: "json",
+        })
+      },
+
       submitMessages: function(list_id) {
         var data = new FormData
         data.append("card[list_id]", list_id)
@@ -54,8 +67,8 @@ import draggable from 'vuedraggable';
 </script>
 
 <style scoped>
-  p {
-    font-size: 2em;
-    text-align: center;
+  /* Min-height for empty column */
+  .dragArea {
+    min-height: 20px;
   }
 </style>
