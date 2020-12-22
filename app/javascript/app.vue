@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="row">
+  <draggable class="row">
     <div v-for="(list, index) in original_lists" class="col-3">
       <h6>{{ list.name }}</h6>
       <hr />
@@ -12,12 +12,16 @@
         <button v-on:click="submitMessages(list.id)" class="btn btn-primary"">Add</button>
       </div>
     </div>
-  </div>
+  </draggable>
 </template>
 
 <script>
-  import Rails from '@rails/ujs';
+import Rails from '@rails/ujs';
+import draggable from 'vuedraggable';
+
   export default {
+    components: { draggable },
+
     props: ["original_lists"],
     data: function() {
       return {
