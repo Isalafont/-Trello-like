@@ -1,8 +1,7 @@
 <template>
-  <draggable v-model="lists" v-bind="{group: 'lists'}" class="row dragArea" @end="listMoved">
-    <div v-for="(list, index) in original_lists" class="col-3">
+  <draggable v-model="lists" v-bind="{group: 'lists'}" class="board dragArea" @end="listMoved">
+    <div v-for="(list, index) in original_lists" class="list">
       <h6>{{ list.name }}</h6>
-      <hr />
 
       <draggable v-model="list.cards" v-bind="{group: 'cards'}" class="dragArea" @change="cardMoved">
         <div v-for="(card, index) in list.cards" class="card card-body">
@@ -10,10 +9,8 @@
         </div>
       </draggable>
 
-      <div class="card card-body">
-        <textarea v-model="messages[list.id]" class="form-control"></textarea>
-        <button v-on:click="submitMessages(list.id)" class="btn btn-primary"">Add</button>
-      </div>
+      <textarea v-model="messages[list.id]" class="form-control mb-1"></textarea>
+      <button v-on:click="submitMessages(list.id)" class="btn btn-primary"">Add</button>
     </div>
   </draggable>
 </template>
@@ -92,7 +89,6 @@ import draggable from 'vuedraggable';
 </script>
 
 <style scoped>
-
   p {
     font-size: 2em;
     text-align: center;
@@ -100,6 +96,23 @@ import draggable from 'vuedraggable';
 
   /* Min-height for empty column */
   .dragArea {
-    min-height: 20px;
+    min-height: 15px;
+  }
+
+  .board {
+    white-space: nowrap;
+    overflow-x: auto;
+
+  }
+
+  .list{
+    display: inline-block;
+    background: #F4FAFF;
+    border-radius: 8px;
+    margin-right: 20px;
+    padding: 20px;
+    vertical-align: top;
+    width: 270px;
+
   }
 </style>
