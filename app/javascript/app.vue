@@ -102,7 +102,6 @@ import draggable from 'vuedraggable';
   .board {
     white-space: nowrap;
     overflow-x: auto;
-
   }
 
   .list{
@@ -113,6 +112,5 @@ import draggable from 'vuedraggable';
     padding: 20px;
     vertical-align: top;
     width: 270px;
-
   }
 </style>
