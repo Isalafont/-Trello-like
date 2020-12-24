@@ -32,18 +32,20 @@ import App from "../app.vue"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+window.store = {}
 Vue.use(TurbolinksAdapter)
+
 
 document.addEventListener('turbolinks:load', () => {
 //   // Call your functions here, e.g:
 //   // initSelect2();
   var element = document.querySelector("#boards")
   if (element != undefined) {
+    window.store.lists = JSON.parse(element.dataset.lists)
+
     const app = new Vue({
       el: element,
-      data: {
-        lists: JSON.parse(element.dataset.lists)
-      },
+      data: window.store,
       template: "<App :original_lists='lists' />",
       components: { App }
     })
