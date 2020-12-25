@@ -45,6 +45,23 @@ import list from 'components/list';
           dataType: "json",
         })
       },
+
+      submitMessage: function() {
+        var data = new FormData
+        data.append("list[name]", this.message)
+
+        Rails.ajax({
+          url: "/lists",
+          type: "POST",
+          data: data,
+          dataType: "json",
+          success: (data) => {
+            window.store.lists.push(data)
+            this.message = ""
+            this.editing = false
+          }
+        })
+      },
     }
   }
 
@@ -65,7 +82,7 @@ import list from 'components/list';
     display: inline-block;
     background: #F4FAFF;
     border-radius: 8px;
-    margin-right: 20px;
+    margin: 10px 10px;
     padding: 20px;
     vertical-align: top;
     width: 270px;
