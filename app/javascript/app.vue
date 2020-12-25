@@ -1,6 +1,13 @@
 <template>
   <draggable v-model="lists" v-bind="{group: 'lists'}" class="board dragArea" @end="listMoved">
     <list v-for="(list, index) in lists" :list="list"></list>
+
+    <div class="list">
+      <a v-if="!editing" v-on:click="startEditing">Add a list</a>
+      <textarea v-if="editing" ref="message" v-model="message" class="form-control mb-1"></textarea>
+      <button  v-if="editing" v-on:click="submitMessage" class="btn btn-primary"">Add</button>
+      <a v-if="editing" v-on:click="editing=false">Cancel</a>
+    </div>
   </draggable>
 </template>
 
@@ -16,10 +23,16 @@ import list from 'components/list';
     data: function() {
       return {
         lists: this.original_lists,
+        editing: false,
+        message: "",
       }
     },
 
     methods: {
+      startEditing: function() {
+        this.editing = true
+        this.$nextTick(() => { this.$refs.message.focus() })
+      },
 
       listMoved: function(event) {
         var data = new FormData
@@ -46,6 +59,16 @@ import list from 'components/list';
   /* Min-height for empty column */
   .dragArea {
     min-height: 15px;
+  }
+
+  .list{
+    display: inline-block;
+    background: #F4FAFF;
+    border-radius: 8px;
+    margin-right: 20px;
+    padding: 20px;
+    vertical-align: top;
+    width: 270px;
   }
 
   .board {
