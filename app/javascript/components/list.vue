@@ -17,6 +17,7 @@
   import Rails from '@rails/ujs';
   import draggable from 'vuedraggable';
   import card from 'components/card';
+
   export default {
     components: { card, draggable },
     props: ["list"],
