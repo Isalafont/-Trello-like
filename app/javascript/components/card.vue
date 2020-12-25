@@ -4,7 +4,9 @@
       {{ card.name }}
     </div>
 
+    <!-- Modal Editing card -->
     <div v-if="editing" class="modal-backdrop show"></div>
+
     <div v-if="editing" @click="closeModal" class="modal show" style="display: block">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -20,6 +22,7 @@
         </div>
       </div>
     </div>
+    <!-- End Modal -->
   </div>
 
 </template>
@@ -37,7 +40,11 @@
     },
 
     methods: {
-      closeModal: function() {},
+      // Clicking backdrop will close modal
+      closeModal: function(event) {
+        if (event.target.classList.contains("modal")) { this.editing = false }
+      },
+
       save: function() {},
     }
   }
