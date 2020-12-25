@@ -5,7 +5,7 @@
     </div>
 
     <div v-if="editing" class="modal-backdrop show"></div>
-    <div v-il="editing" @click="closeModal" class="modal show" style="display: block;">
+    <div v-if="editing" @click="closeModal" class="modal show" style="display: block;">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
