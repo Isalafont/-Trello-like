@@ -87,13 +87,4 @@
     min-height: 15px;
   }
 
-  .list{
-    display: inline-block;
-    background: #F4FAFF;
-    border-radius: 8px;
-    margin-right: 20px;
-    padding: 20px;
-    vertical-align: top;
-    width: 270px;
-  }
 </style>
