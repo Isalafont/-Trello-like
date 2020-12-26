@@ -39,7 +39,7 @@ import list from 'components/list';
         data.append("list[position]", event.newIndex + 1)
 
         Rails.ajax({
-          url: `/list/${this.lists[event.newIndex].id}/move`,
+          url: `/lists/${this.lists[event.newIndex].id}/move`,
           type: "PATCH",
           data: data,
           dataType: "json",
