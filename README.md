@@ -13,7 +13,13 @@ I've used Rails app generated with [lewagon/rails-templates](https://github.com/
 
 ## Installation
 
-For it's first launch and create db : run the following command
+For it's first launch run the following command :
+
+```
+bundle install
+```
+
+Create the db
 
 ```
 rails db:create
