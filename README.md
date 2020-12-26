@@ -41,10 +41,7 @@ rails db:seeds
 Open Rails Console
 
 ```
-rails c
-```
-or
-```
+rails c  #or
 rails console
 ```
 
@@ -57,10 +54,7 @@ rails routes
 Launch server
 
 ```
-rails s
-```
-or
-```
+rails s #or
 rails server
 ```
 
