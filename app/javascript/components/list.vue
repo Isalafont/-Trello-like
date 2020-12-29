@@ -10,7 +10,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">{{ list.name }}</h5>
+              <h5 class="modal-title">Edit column name</h5>
             </div>
             <div class="modal-body">
               <input v-model="name" class="form-control"></input>
@@ -32,7 +32,7 @@
 
     <a v-if="!editing" v-on:click="startEditing">Add a card</a>
     <textarea v-if="editing" ref="message" v-model="message" class="form-control mb-1"></textarea>
-    <button  v-if="editing" v-on:click="submitMessage" class="btn btn-primary"">Add</button>
+    <button  v-if="editing" v-on:click="submitMessage" class="btn btn-primary">Add</button>
     <a v-if="editing" v-on:click="editing=false">Cancel</a>
   </div>
 </template>
