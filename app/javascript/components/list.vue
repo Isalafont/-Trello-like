@@ -1,6 +1,30 @@
 <template>
   <div class="list">
-    <h6>{{ list.name }}</h6>
+    <div class="list-title">
+      <h6>{{ list.name }}</h6>
+      <i @click="editing=true" class="fas fa-ellipsis-h" id="editing-btn"></i>
+    </div>
+
+    <!-- Editing Modal Editing List -->
+    <div v-if="editing" class="modal-backdrop show"></div>
+
+    <div v-if="editing" @click="closeModal" class="modal show" style="display: block">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ list.name }}</h5>
+          </div>
+          <div class="modal-body">
+            <input v-model="name" class="form-control"></input>
+          </div>
+          <div class="modal-footer">
+            <button @click="save" type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
 
     <draggable v-model="list.cards" v-bind="{group: 'cards'}" class="dragArea" @change="cardMoved">
       <card v-for="card in list.cards" :card="card" :list="list"></card>
@@ -25,11 +49,38 @@
     data: function() {
       return {
         editing: false,
+        name: this.list.name,
         message: ""
       }
     },
 
     methods: {
+      // Clicking backdrop will close modal
+      closeModal: function(event) {
+        if (event.target.classList.contains("modal")) { this.editing = false }
+      },
+
+      // Save Modal Edit name
+      save: function() {
+        var data = new FormData
+        data.append("list[name]", this.name)
+
+        Rails.ajax({
+          url: `/lists/${this.list.id}`,
+          type: "PATCH",
+          data: data,
+          dataType: "json",
+          success: (data) => {
+            const list_index = window.store.lists.findIndex((item) => item.id == this.list.id)
+            // const list_name = window.store.lists[list_index].list[name]
+            window.store.lists.splice(list_index, 1, data)
+
+            this.editing = false
+          }
+        })
+      },
+
+
       startEditing: function() {
         this.editing = true
         this.$nextTick(() => { this.$refs.message.focus() })
