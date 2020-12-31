@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  skip_before_action :authenticate_user!, raise: false
   before_action :set_list, only: [:show, :edit, :update, :destroy, :move]
 
   # GET /lists
