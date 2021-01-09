@@ -29,9 +29,6 @@ import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from "vue/dist/vue.esm"
 import App from "../app.vue"
 
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-
 window.store = {}
 Vue.use(TurbolinksAdapter)
 
