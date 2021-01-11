@@ -80,16 +80,18 @@ import list from 'components/list';
 
   .list{
     display: inline-block;
-    background: #F4FAFF;
+    background: #efefef;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    margin: 10px 10px;
+    margin: 100px 10px;
     padding: 20px;
     vertical-align: top;
     width: 270px;
   }
 
   .board {
-    white-space: wrap;
+    white-space: nowrap;
     overflow-x: auto;
   }
+
 </style>
