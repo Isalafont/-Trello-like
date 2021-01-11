@@ -1,7 +1,7 @@
 <template>
   <div>
     <div @click="editing=true" class="card card-body mb-3">
-      <div class="card-text">
+      <div class="text-wrap">
         {{ card.name }}
       </div>
     </div>
@@ -71,7 +71,5 @@
 </script>
 
 <style scoped>
- .card-text {
-    word-wrap: break-word;
- }
+
 </style>
