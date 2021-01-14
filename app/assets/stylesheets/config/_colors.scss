@@ -1,29 +1,102 @@
-// Define variables for your color scheme
+// Primary Color Variants
 
-// For example:
-$red: #FD1015;
-$blue: #167FFB;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+$primaryDark: #004e6f;
+$primaryDark25: #0275a7;
+$primary: #029cde;
+$primaryLight: #80cef0;
+$primaryLight75: #bfe6f7;
+$primaryLight90: #e5f5fc;
+$primaryLight95: #f2fafd;
 
-// Trello App
+// Accent Color Variants 1
 
-$primaryDark: #266EBA;;
-$primaryLight: rgba(38, 110, 186, 0.1); //#73BFDF
-$secondary: #efefef;
-$secondaryLight: #F4F4F4;
-$contrastingSuccess: #73BFB8;
-$contrastingDanger: #DE6449;
-$contrastingWarning: #FEC601;
-$contrastingInfo: #DD7596;
+$secondaryDark: #5b3e80;
+$secondaryDark25: #885dbf;
+$secondary: #b67cff;
+$secondaryLight: #dabdff;
+$secondaryLight75: #eddeff;
+$secondaryLight90: #f8f3ff;
+$secondaryLight95: #fbf8ff;
+
+// Accent Color Variants 2
+
+$secondary2Dark: #803b01;
+$secondary2Dark25: #be6a2b;
+$secondary2: #ff7502;
+$secondary2Light: #ffba80;
+$secondary2Light75: #ffddbf;
+$secondary2Light90: #fff1e5;
+$secondary2Light95: #fff8f2;
+
+// Succes Color Variants
+
+$successDark: #1f611e;
+$successDark25: #2e912c;
+$success: #3cc23b;
+$successLight: #9de09d;
+$successLight75: #ceefce;
+$successLight90: #ebf9eb;
+$successLight95: #f5fcf6;
+
+// Warning Color Variants
+
+$warningDark: #806301;
+$warningDark25: #bf9504;
+$warning: #fec601;
+$warningLight: #ffe380;
+$warningLight75: #fff2bf;
+$warningLight90: #fff9e6;
+$warningLight95: #fffcf2;
+
+// Error Color Variants
+
+$dangerDark: #781c1c;
+$dangerDark25: #b4292a;
+$danger: #f03738;
+$dangerLight: #f89b9b;
+$dangerLight75: #fbcdcd;
+$dangerLight90: #fdebec;
+$dangerLight95: #fef5f5;
+
+// Gray Color Variants
+
+$grayDark: #616569;
+$grayDark25: #92979d;
+$gray: #c2c9d1;
+$grayLight: #e1e4e8;
+$grayLight75: #f0f2f3;
+$grayLight90: #f9fafa;
+$grayLight95: #fcfcfd;
+
+// Black Color Variants
+
+$black: #000000;
+$black50: #808080;
+$black25: #bfbfbf;
+$black10: #e5e5e5;
+$black5: #f2f2f2;
+
+// White Color Variants
+
+$white: #ffffff;
+$white50: #b2b2b2;
+$white25: #808080;
+$white10: #595959;
+$white5: #404040;
 
 
-$greenblue: #2364AA;
-$carolineblue: #3DA5D9;
-$greensheen: #73BFB8;
-$mikadoyellow: #FEC601;
-$aliceblue: #EAF6FA;
-$testcolor: #266EBA;
+// TEST COLORS
+
+// $secondary: #efefef;
+// $secondaryLight: #F4F4F4;
+// $contrastingSuccess: #73BFB8;
+// $contrastingDanger: #DE6449;
+// $contrastingWarning: #FEC601;
+// $contrastingInfo: #DD7596;
+
+// $greenblue: #2364AA;
+// $carolineblue: #3DA5D9;
+// $greensheen: #73BFB8;
+// $mikadoyellow: #FEC601;
+// $aliceblue: #EAF6FA;
+// $testcolor: #266EBA;
