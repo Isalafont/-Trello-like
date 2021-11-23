@@ -24,10 +24,15 @@ require("channels")
 
 // External imports
 import "bootstrap"
+// import "../stylesheet/application"
 
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from "vue/dist/vue.esm"
 import App from "../app.vue"
+
+
+// console.log("Hello from app/javascript/packs/application.js!");
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

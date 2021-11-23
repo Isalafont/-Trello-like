@@ -5,7 +5,7 @@
     <div class="list">
       <a v-if="!editing" v-on:click="startEditing">Add a list</a>
       <textarea v-if="editing" ref="message" v-model="message" class="form-control mb-1"></textarea>
-      <button  v-if="editing" v-on:click="submitMessage" class="btn btn-primary"">Add</button>
+      <button  v-if="editing" v-on:click="submitMessage" class="btn btn-primary">Add</button>
       <a v-if="editing" v-on:click="editing=false">Cancel</a>
     </div>
   </draggable>
