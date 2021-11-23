@@ -34,7 +34,7 @@
 
 // import Vue from 'vue/dist/vue.esm'
 // import App from '../app.vue'
-
+//
 // document.addEventListener('DOMContentLoaded', () => {
 //   const app = new Vue({
 //     el: '#hello',
@@ -53,8 +53,6 @@
 //
 // Then uncomment the code block below:
 //
-
-// Working Test
 // import TurbolinksAdapter from 'vue-turbolinks'
 // import Vue from 'vue/dist/vue.esm'
 // import App from '../app.vue'

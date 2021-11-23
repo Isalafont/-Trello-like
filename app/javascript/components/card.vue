@@ -1,9 +1,7 @@
 <template>
   <div>
     <div @click="editing=true" class="card card-body mb-3">
-      <div class="text-wrap">
-        {{ card.name }}
-      </div>
+      {{ card.name }}
     </div>
 
     <!-- Modal Editing card -->
@@ -31,7 +29,6 @@
 
 <script>
   import Rails from '@rails/ujs';
-
   export default {
     props: ['card', 'list'],
     data: function() {
@@ -40,17 +37,14 @@
         name: this.card.name,
       }
     },
-
     methods: {
       // Clicking backdrop will close modal
       closeModal: function(event) {
         if (event.target.classList.contains("modal")) { this.editing = false }
       },
-
       save: function() {
         var data = new FormData
         data.append("card[name]", this.name)
-
         Rails.ajax({
           url: `/cards/${this.card.id}`,
           type: "PATCH",
@@ -60,16 +54,13 @@
             const list_index = window.store.lists.findIndex((item) => item.id == this.list.id)
             const card_index = window.store.lists[list_index].cards.findIndex((item) => item.id == this.card.id)
             window.store.lists[list_index].cards.splice(card_index, 1, data)
-
             this.editing = false
           }
         })
       },
     }
   }
-
 </script>
 
 <style scoped>
-
 </style>

@@ -12,13 +12,12 @@
 </template>
 
 <script>
-import Rails from '@rails/ujs';
-import draggable from 'vuedraggable';
-import list from 'components/list';
+  import Rails from '@rails/ujs';
+  import draggable from 'vuedraggable';
+  import list from 'components/list';
 
   export default {
     components: { draggable, list },
-
     props: ["original_lists"],
     data: function() {
       return {
@@ -27,17 +26,14 @@ import list from 'components/list';
         message: "",
       }
     },
-
     methods: {
       startEditing: function() {
         this.editing = true
         this.$nextTick(() => { this.$refs.message.focus() })
       },
-
       listMoved: function(event) {
         var data = new FormData
         data.append("list[position]", event.newIndex + 1)
-
         Rails.ajax({
           url: `/lists/${this.lists[event.newIndex].id}/move`,
           type: "PATCH",
@@ -45,11 +41,9 @@ import list from 'components/list';
           dataType: "json",
         })
       },
-
       submitMessage: function() {
         var data = new FormData
         data.append("list[name]", this.message)
-
         Rails.ajax({
           url: "/lists",
           type: "POST",
@@ -64,7 +58,6 @@ import list from 'components/list';
       },
     }
   }
-
 </script>
 
 <style scoped>
@@ -72,26 +65,21 @@ import list from 'components/list';
     font-size: 2em;
     text-align: center;
   }
-
   /* Min-height for empty column */
   .dragArea {
     min-height: 15px;
   }
-
   .list{
     display: inline-block;
-    background: #efefef;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    background: #F4FAFF;
     border-radius: 8px;
-    margin: 100px 10px;
+    margin: 10px 10px;
     padding: 20px;
     vertical-align: top;
     width: 270px;
   }
-
   .board {
-    white-space: nowrap;
+    white-space: wrap;
     overflow-x: auto;
   }
-
 </style>
