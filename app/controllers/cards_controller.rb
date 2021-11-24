@@ -27,9 +27,11 @@ class CardsController < ApplicationController
   # POST /cards.json
   def create
     @card = Card.new(card_params)
-
     respond_to do |format|
       if @card.save
+
+        ActionCable.server.broadcast "board", { commit: 'addCard', payload: render_to_string(:show, formats: [:json]) }
+
         format.html { redirect_to @card, notice: 'Card was successfully created.' }
         format.json { render :show, status: :created, location: @card }
       else
@@ -44,6 +46,9 @@ class CardsController < ApplicationController
   def update
     respond_to do |format|
       if @card.update(card_params)
+
+        ActionCable.server.broadcast "board", { commit: 'editCard', payload: render_to_string(:show, formats: [:json]) }
+
         format.html { redirect_to @card, notice: 'Card was successfully updated.' }
         format.json { render :show, status: :ok, location: @card }
       else
@@ -65,17 +70,19 @@ class CardsController < ApplicationController
 
   def move
     @card.update(card_params)
+    ActionCable.server.broadcast "board", { commit: 'moveCard', payload: render_to_string(:show, formats: [:json]) }
     render action: :show
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_card
-      @card = Card.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def card_params
-      params.require(:card).permit(:list_id, :name, :position)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_card
+    @card = Card.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def card_params
+    params.require(:card).permit(:list_id, :name, :position)
+  end
 end

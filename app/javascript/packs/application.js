@@ -30,23 +30,16 @@ ActiveStorage.start()
 
 // External imports
 
-import TurbolinksAdapter from 'vue-turbolinks'
-import Vue from "vue/dist/vue.esm"
-import App from "../app.vue"
+import TurbolinksAdapter from 'vue-turbolinks';
+import Vue from "vue/dist/vue.esm";
+import App from "../app.vue";
 
-
-console.log("Hello from app/javascript/packs/application.js!");
-
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
 
 window.store = {}
 Vue.use(TurbolinksAdapter)
 
 
 document.addEventListener('turbolinks:load', () => {
-//   // Call your functions here, e.g:
-//   // initSelect2();
   var element = document.querySelector("#boards")
   if (element != undefined) {
     window.store.lists = JSON.parse(element.dataset.lists)

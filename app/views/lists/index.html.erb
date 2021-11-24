@@ -6,8 +6,6 @@
   <hr />
 </div> -->
 
-<%= tag.div id: :boards, data: { lists: @lists.to_json(include: :cards) }
- %>
-
-
-
+<div class="mt-3">
+  <%= tag.div id: :boards, data: { lists: @lists.to_json(include: :cards) } %>
+</div>

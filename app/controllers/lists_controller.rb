@@ -30,6 +30,8 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
+        ActionCable.server.broadcast "board", { commit: 'addList', payload: render_to_string(:show, formats: [:json]) }
+
         format.html { redirect_to @list, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
@@ -65,17 +67,19 @@ class ListsController < ApplicationController
 
   def move
     @list.insert_at(list_params[:position].to_i)
+    ActionCable.server.broadcast "board", { commit: 'moveList', payload: render_to_string(:show, formats: [:json]) }
     render action: :show
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_list
-      @list = List.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def list_params
-      params.require(:list).permit(:name, :position)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_list
+    @list = List.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def list_params
+    params.require(:list).permit(:name, :position)
+  end
 end

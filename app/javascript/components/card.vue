@@ -24,7 +24,6 @@
     </div>
     <!-- End Modal -->
   </div>
-
 </template>
 
 <script>
@@ -37,14 +36,17 @@
         name: this.card.name,
       }
     },
+
     methods: {
       // Clicking backdrop will close modal
       closeModal: function(event) {
         if (event.target.classList.contains("modal")) { this.editing = false }
       },
+
       save: function() {
         var data = new FormData
         data.append("card[name]", this.name)
+
         Rails.ajax({
           url: `/cards/${this.card.id}`,
           type: "PATCH",
