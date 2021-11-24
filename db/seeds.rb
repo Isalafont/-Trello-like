@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 listSeed = List.create({ name: 'This is a list', position: 1 })
-cardSeed = Card.create({ name: 'This is a card', list_id: 1, position: 1 })
+cardSeed = List.first.cards.create({name: 'This is the first card'})
