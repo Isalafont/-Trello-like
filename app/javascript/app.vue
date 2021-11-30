@@ -1,61 +1,79 @@
 <template>
-  <draggable v-model="lists" v-bind="{group: 'lists'}" class="board dragArea" @end="listMoved">
-    <list v-for="(list, index) in lists" :list="list"></list>
+  <div class="board">
+    <draggable v-model="lists" v-bind="{group: 'lists'}" class="dragArea d-inline-block" @end="listMoved">
+      <list v-for="(list, index) in lists" :key="list.id" :list="list"></list>
+    </draggable>
 
     <div class="list">
       <a v-if="!editing" v-on:click="startEditing">Add a list</a>
       <textarea v-if="editing" ref="message" v-model="message" class="form-control mb-1"></textarea>
-      <button  v-if="editing" v-on:click="submitMessage" class="btn btn-primary">Add</button>
+      <button  v-if="editing" v-on:click="createList" class="btn btn-primary">Add</button>
       <a v-if="editing" v-on:click="editing=false">Cancel</a>
     </div>
-  </draggable>
+  </div>
 </template>
 
 <script>
-  import Rails from '@rails/ujs';
+  // import Rails from '@rails/ujs';
   import draggable from 'vuedraggable';
   import list from 'components/list';
 
   export default {
     components: { draggable, list },
-    props: ["original_lists"],
+
     data: function() {
       return {
-        lists: this.original_lists,
         editing: false,
         message: "",
       }
     },
+
+    computed: {
+      lists() {
+        get() {
+          return this.$store.state.lists
+        };
+        set(value) {
+          this.$store.state.lists = value
+        };
+      },
+    },
+
     methods: {
       startEditing: function() {
         this.editing = true
         this.$nextTick(() => { this.$refs.message.focus() })
       },
+
       listMoved: function(event) {
         var data = new FormData
         data.append("list[position]", event.newIndex + 1)
+
         Rails.ajax({
+          beforeSend: () => true,
           url: `/lists/${this.lists[event.newIndex].id}/move`,
           type: "PATCH",
           data: data,
           dataType: "json",
         })
       },
-      submitMessage: function() {
+
+      createList: function() {
         var data = new FormData
         data.append("list[name]", this.message)
+
         Rails.ajax({
+          beforeSend: () => true,
           url: "/lists",
           type: "POST",
           data: data,
           dataType: "json",
           success: (data) => {
-            window.store.lists.push(data)
             this.message = ""
             this.editing = false
           }
         })
-      },
+      }
     }
   }
 </script>
@@ -67,19 +85,21 @@
   }
   /* Min-height for empty column */
   .dragArea {
-    min-height: 15px;
+    min-height: 10px;
   }
+
+  .board {
+    overflow-x: auto;
+    white-space: wrap;
+  }
+
   .list{
     display: inline-block;
-    background: #F4FAFF;
-    border-radius: 8px;
-    margin: 10px 10px;
-    padding: 20px;
     vertical-align: top;
     width: 270px;
-  }
-  .board {
-    white-space: wrap;
-    overflow-x: auto;
+    margin: 10px 10px;
+    padding: 20px;
+    border-radius: 3px;
+    background: #E2E4E6;
   }
 </style>
