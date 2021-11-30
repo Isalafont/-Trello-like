@@ -28,6 +28,7 @@
 
 <script>
   import Rails from '@rails/ujs';
+
   export default {
     props: ['card', 'list'],
     data: function() {
@@ -48,14 +49,12 @@
         data.append("card[name]", this.name)
 
         Rails.ajax({
+          beforeSend: () => true,
           url: `/cards/${this.card.id}`,
           type: "PATCH",
           data: data,
           dataType: "json",
           success: (data) => {
-            const list_index = window.store.lists.findIndex((item) => item.id == this.list.id)
-            const card_index = window.store.lists[list_index].cards.findIndex((item) => item.id == this.card.id)
-            window.store.lists[list_index].cards.splice(card_index, 1, data)
             this.editing = false
           }
         })
