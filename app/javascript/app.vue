@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  // import Rails from '@rails/ujs';
+  import Rails from '@rails/ujs';
   import draggable from 'vuedraggable';
   import list from 'components/list';
 
@@ -29,13 +29,13 @@
     },
 
     computed: {
-      lists() {
+      lists: {
         get() {
           return this.$store.state.lists
-        };
+        },
         set(value) {
           this.$store.state.lists = value
-        };
+        },
       },
     },
 

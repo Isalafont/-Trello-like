@@ -15,7 +15,7 @@
 
 <script>
 
-// import Rails from '@rails/ujs';
+import Rails from '@rails/ujs';
 import draggable from 'vuedraggable';
 import card from 'components/card';
 

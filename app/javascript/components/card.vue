@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  // import Rails from '@rails/ujs';
+  import Rails from '@rails/ujs';
 
   export default {
     props: ['card', 'list'],
