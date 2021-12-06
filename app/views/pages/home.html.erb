@@ -1,20 +1,22 @@
 <section class="home-presentation container-fluid">
-  <div class="home-title">
+  <div class="home-title text-center">
       <h1>Découvrez Magic Freeboard</h1>
   </div>
 
-  <div class="intro-title">
+  <div class="intro-title text-center">
     <p>
       Gérez tous vos projets, programmes et processus, même les plus complexes.
     </p>
-      <%= inline_svg_tag("Taskmagic.svg", class:"svg-home",
+    <div class="home-image">
+      <%= inline_svg_tag("Taskmagic.svg", class:"svg-home shadow-icon",
                                           aria: true,
                                           title: 'Boards-Magic-F',
                                           size: '50% * 50%',
                                           preserve_aspect_ratio: 'xMaxYMax meet',
                                           desc: 'Welcome to Magic Freeboard') %>
+    </div>
   </div>
-  <div class="cta">
-    <%= link_to "Inscris toi", lists_path, class: "btn-cta" %>
+  <div class="text-center fit-link">
+    <button class="cta btn--big btn--small shadow-icon"><%= link_to "Inscris toi", lists_path %></button>
   </div>
 </section>

@@ -19,3 +19,20 @@ body {
   font-size: 3rem;
   font-weight: bold;
 }
+
+.home-image {
+  margin: 100px auto;
+}
+
+.shadow-icon {
+  filter: drop-shadow(0 4px 10px rgba(56, 21, 89, 0.3));
+}
+
+.fit-link {
+  width: 25%;
+  margin: 50px auto;
+}
+
+.text-center {
+  text-align: center;
+}
