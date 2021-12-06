@@ -1,8 +1,21 @@
 body {
-  background-color: $secondaryLight95;
+  background-color: $grayLight95;
+  font-size: 16px;
+}
+
+.home-presentation {
+  background: linear-gradient($secondaryLight90, $successLight75);
+  padding-top: 50px;
+  padding-bottom: 15px;
 }
 
 .home-title {
-  display: flex;
   justify-content: center;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.home-title h1 {
+  font-size: 3rem;
+  font-weight: bold;
 }
