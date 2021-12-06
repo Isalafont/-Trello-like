@@ -1,11 +1,19 @@
 <div class="banner">
-  <div class="home-title">
     <h1>Découvrez Magic Freeboard</h1>
-    <p>
-      Gérez tous vos projets, programmes et processus, même les plus complexes.
-    </p>
-    <div class="cta">
-      <%= link_to "Inscris toi", lists_path, class: "btn-cta" %>
-    </div>
-  </div>
+</div>
+
+<div class="home-title">
+  <p>
+    Gérez tous vos projets, programmes et processus, même les plus complexes.
+  </p>
+    <%= inline_svg_tag("Taskmagic.svg", class:"svg-home",
+                                        aria: true,
+                                        title: 'Boards-Magic-F',
+                                        size: '60% * 60%',
+                                        preserve_aspect_ratio: 'xMaxYMax meet',
+                                        desc: 'Welcome to Magic Freeboard') %>
+</div>
+<%= inline_svg_tag("logo-MagicF.svg") %>
+<div class="cta">
+  <%= link_to "Inscris toi", lists_path, class: "btn-cta" %>
 </div>
