@@ -1,22 +1,30 @@
-<section class="home-presentation container-fluid">
+<section class=" landing-page home-presentation container-fluid">
+
   <div class="home-title text-center">
-      <h1>Découvrez Magic Freeboard</h1>
+    <h1>Freeboard vous accompagne dans vos projets.</h1>
+  </div> 
+
+  <div class="container-fluid row home-intro">
+  <div class="text-center col-12 col-md-6">
+    <p>
+        Gérez tous vos projets, même les plus complexes et atteignez de nouveaux sommets en matière de productivité.
+        Freeboard vous aide à organiser vos tâches et à restez zen.
+    </p>
   </div>
 
-  <div class="intro-title text-center">
-    <p>
-      Gérez tous vos projets, programmes et processus, même les plus complexes.
-    </p>
-    <div class="home-image">
-      <%= inline_svg_tag("Taskmagic.svg", class:"svg-home shadow-icon",
-                                          aria: true,
-                                          title: 'Boards-Magic-F',
-                                          size: '50% * 50%',
-                                          preserve_aspect_ratio: 'xMaxYMax meet',
-                                          desc: 'Welcome to Magic Freeboard') %>
-    </div>
+  <!-- <div class="home-image col-6 col-md-6"> -->
+  <div class="home-image col-12 col-md-6">
+    <%= inline_svg_tag("Taskmagic.svg", class:"svg-home",
+                                        aria: true,
+                                        title: 'Boards-Magic-F',
+                                        size: '100% * 100%',
+                                        preserve_aspect_ratio: 'xMaxYMax meet',
+                                        desc: 'Welcome to Magic Freeboard') %>
   </div>
-  <div class="text-center fit-link">
-    <button class="cta btn--big btn--small shadow-icon"><%= link_to "Inscris toi", lists_path %></button>
   </div>
+
+  <div class="container fit-link">
+    <button class="cta btn--big btn--small shadow-icon"><%= link_to "Inscrivez-vous: c'est gratuit!", lists_path %></button>
+  </div>
+
 </section>

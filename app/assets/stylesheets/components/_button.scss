@@ -7,10 +7,6 @@ a:active {
 }
 
 .cta {
-  display: block;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
   color: $grayLight95;
   touch-action: manipulation;
   border: 0px solid transparent;
@@ -59,7 +55,6 @@ a:active {
 
 .btn--big {
   padding: 23px 50px;
-  margin: 7px 15px 18px;
   border-radius: 100px;
   font-size: 1.125rem;
   font-weight: 600;
