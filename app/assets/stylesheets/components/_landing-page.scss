@@ -1,0 +1,35 @@
+.home-presentation {
+  background: linear-gradient($successLight75, $secondaryLight90);
+  padding-top: 50px;
+  padding-bottom: 15px;
+  min-height: 100vh;
+  display: block;
+}
+
+.home-title h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 50px auto;
+}
+
+.home-intro {
+  margin: 100px auto;
+}
+
+.home-intro p {
+  font-size: 1.125rem;
+  margin: 50px 50px;
+  text-align: left;
+}
+
+.home-image {
+  margin: 0 auto;
+  align-self: center;
+}
+
+.fit-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+}
