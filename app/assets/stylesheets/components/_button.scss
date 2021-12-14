@@ -1,6 +1,6 @@
-.cta {
+.cta-round-slidding-effect-blue-green {
   touch-action: manipulation;
-  border: 0px solid transparent;
+  border: none;
   position: relative;
   overflow: hidden;
   transition: color 0.2s ease, background-color 0.2s ease;
@@ -12,7 +12,7 @@
     color: $grayLight95;
   }
   a:link,
-  a:hover {
+  s a:hover {
     text-decoration: none;
     color: $grayLight95;
   }
@@ -59,30 +59,15 @@
   font-size: 1rem;
   font-weight: 600;
   border-radius: 50px;
+  a {
+    color: $grayLight95;
+  }
+  a:link,
+  a:hover {
+    text-decoration: none;
+    color: $grayLight95;
+  }
 }
-
-// Animation still to settle
-
-// .btn-big,
-// .btn-small {
-//   transition: box-shadow 0.2s ease;
-//   transition-property: box-shadow;
-//   transition-duration: 0.2s;
-//   transition-timing-function: ease;
-//   transition-delay: 0s;
-// }
-
-// .btn-animation {
-//   animation: b 0.2s ease-in both;
-//   animation-duration: 0.2s;
-//   animation-timing-function: ease-in;
-//   animation-delay: 0s;
-//   animation-iteration-count: 1;
-//   animation-direction: normal;
-//   animation-fill-mode: both;
-//   animation-play-state: running;
-//   animation-name: b;
-// }
 
 // .btn {
 //   margin-bottom: 0;
@@ -101,3 +86,106 @@
 //   -ms-user-select: none;
 //   user-select: none;
 // }
+
+// Devise btn
+
+.btn-devise {
+  width: 25%;
+  height: 40px;
+  margin-bottom: 1.125rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  color: $grayLight;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  outline: none;
+  border: none;
+  background: $success;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn-devise:hover {
+  background: $successLight;
+}
+
+.btn-devise:active {
+  top: 2px;
+}
+
+// shadow border
+
+.css-button-shadow-border--green {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  // background: #57cc99;
+  background: $success;
+  a {
+    color: $grayLight95;
+  }
+}
+.css-button-shadow-border--green:hover {
+  // background-color: #80ed99;
+  background: $successLight;
+}
+.css-button-shadow-border--green:active {
+  top: 2px;
+}
+
+// Slidding effect
+
+.css-button-shadow-border-sliding--green {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  background: $success;
+  z-index: 1;
+}
+.css-button-shadow-border-sliding--green:hover:after {
+  width: 100%;
+  left: 0;
+}
+.css-button-shadow-border-sliding--green:after {
+  border-radius: 5px;
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: $successLight;
+  right: 0;
+}
+.css-button-shadow-border-sliding--green:active {
+  top: 2px;
+}

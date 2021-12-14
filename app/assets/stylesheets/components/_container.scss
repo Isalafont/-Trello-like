@@ -1,4 +1,13 @@
 // Main Container
 .full-container {
   padding: 0px 0px !important;
+  // display: flex;
+  // justify-content: center;
+}
+
+// Devise Container
+.wrapper-devise {
+  background-color: $secondaryLight90;
+  display: flex;
+  justify-content: center;
 }

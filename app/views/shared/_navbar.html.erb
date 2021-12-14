@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon shadow-icon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand logo-navbar" do %>
+    <%= link_to root_path, class: "navbar-brand logo-navbar" do %>
       <%= inline_svg_tag("logo-MagicF.svg") %> Magic Freeboard
     <% end %>
 
@@ -13,7 +13,7 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Home", lists_path, class: "nav-link" %>
           </li>
           <!-- <li class="nav-item">
             <%#= link_to "Messages", "#", class: "nav-link" %>

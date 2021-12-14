@@ -1,0 +1,23 @@
+// Session New
+
+// container
+.devise {
+  background-color: $grayLight95;
+  border-radius: 2px;
+  margin: 3.125rem 3.125rem;
+  padding: 2rem 1.125rem;
+  width: 50%;
+}
+
+@media screen and (max-width: 577px) {
+  .devise {
+    width: 60%;
+  }
+}
+
+// Session new
+
+.devise-title {
+  margin: 2.5rem 2.5rem;
+  font-size: 2.225rem;
+}
