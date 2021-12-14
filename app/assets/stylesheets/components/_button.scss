@@ -1,13 +1,4 @@
-a:link,
-a:visited,
-a:hover,
-a:active {
-  text-decoration: none;
-  color: $grayLight95;
-}
-
 .cta {
-  color: $grayLight95;
   touch-action: manipulation;
   border: 0px solid transparent;
   position: relative;
@@ -17,13 +8,16 @@ a:active {
   -ms-user-select: none;
   user-select: none;
   z-index: 1;
+  a {
+    color: $grayLight95;
+  }
   a:link,
   a:hover {
     text-decoration: none;
     color: $grayLight95;
   }
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -33,7 +27,7 @@ a:active {
     z-index: -2;
   }
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
