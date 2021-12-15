@@ -5,26 +5,24 @@
   </div> 
 
   <div class="container-fluid row home-intro">
-  <div class="text-center col-12 col-md-6">
-    <p>
-        Gérez tous vos projets, même les plus complexes et atteignez de nouveaux sommets en matière de productivité.
-        Freeboard vous aide à organiser vos tâches et à restez zen.
-    </p>
-  </div>
+    <div class="text-center col-12 col-md-6 home-box">
+      <p>
+          Gérez tous vos projets, même les plus complexes et atteignez de nouveaux sommets en matière de productivité.
+            Freeboard vous aide à organiser vos tâches et à restez zen.
+      </p>
+      <div class="container fit-link">
+        <button class="cta-round-slidding-effect-blue-green btn--big btn--small shadow-icon"><%= link_to "Inscrivez-vous: c'est gratuit!", lists_path %></button>
+      </div>
+    </div>
 
-  <!-- <div class="home-image col-6 col-md-6"> -->
-  <div class="home-image col-12 col-md-6">
-    <%= inline_svg_tag("Taskmagic.svg", class:"svg-home",
-                                        aria: true,
-                                        title: 'Boards-Magic-F',
-                                        size: '100% * 100%',
-                                        preserve_aspect_ratio: 'xMaxYMax meet',
-                                        desc: 'Welcome to Magic Freeboard') %>
-  </div>
-  </div>
-
-  <div class="container fit-link">
-    <button class="cta btn--big btn--small shadow-icon"><%= link_to "Inscrivez-vous: c'est gratuit!", lists_path %></button>
+    <div class="home-image col-12 col-md-6">
+      <%= inline_svg_tag("Taskmagic.svg", class:"svg-home",
+                                          aria: true,
+                                          title: 'Boards-Magic-F',
+                                          size: '100% * 100%',
+                                          preserve_aspect_ratio: 'xMaxYMax meet',
+                                          desc: 'Welcome to Magic Freeboard') %>
+    </div>
   </div>
 
 </section>

@@ -9,11 +9,15 @@
 .home-title h1 {
   font-size: 3rem;
   font-weight: bold;
-  margin: 50px auto;
+  // margin: 50px auto;
 }
 
 .home-intro {
   margin: 100px auto;
+}
+
+.home-box {
+  margin-bottom: 4rem;
 }
 
 .home-intro p {
@@ -31,5 +35,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 4rem auto;
+  margin-top: 3.125rem auto;
 }
