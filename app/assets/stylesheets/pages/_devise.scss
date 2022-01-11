@@ -1,6 +1,11 @@
 // Session New
-
 // container
+.wrapper {
+  display: flex;
+  padding: 0px 0px !important;
+  justify-content: center;
+}
+
 .devise {
   background-color: $grayLight95;
   border-radius: 2px;
