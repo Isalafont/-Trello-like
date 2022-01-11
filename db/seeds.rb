@@ -5,5 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-listSeed = List.create({ name: 'This is a list', position: 1 })
-cardSeed = List.first.cards.create({name: 'This is the first card'})
+listSeed = List.create({ name: Faker::Movies::StarWars.planet, position: Faker::Number.digit })
+cardSeed = List.first.cards.create({ name: Faker::Quote.yoda, position: Faker::Number.digit })
