@@ -34,6 +34,7 @@ gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'inline_svg', '~> 1.7', '>= 1.7.2'
+gem 'seedbank', '~> 0.5.0'
 gem 'simple_form'
 gem 'turbolinks_render'
 
