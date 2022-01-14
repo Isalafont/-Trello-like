@@ -1,45 +1,64 @@
 <template>
   <div class="list">
-    <h6>{{ list.name }}</h6>
+    <h5>{{ list.name }}</h5>
 
-    <draggable v-model="list.cards" v-bind="{group: 'cards'}" class="dragArea" @change="cardMoved">
-      <card v-for="card in list.cards" :key="card.id" :card="card" :list="list"></card>
+    <draggable
+      v-model="list.cards"
+      v-bind="{ group: 'cards' }"
+      class="dragArea"
+      @change="cardMoved"
+    >
+      <card
+        v-for="card in list.cards"
+        :key="card.id"
+        :card="card"
+        :list="list"
+      ></card>
     </draggable>
 
     <a v-if="!editing" v-on:click="startEditing">Add a card</a>
-    <textarea v-if="editing" ref="message" v-model="message" class="form-control mb-1"></textarea>
-    <button  v-if="editing" v-on:click="createCard" class="btn btn-primary">Add</button>
-    <a v-if="editing" v-on:click="editing=false">Cancel</a>
+    <textarea
+      v-if="editing"
+      ref="message"
+      v-model="message"
+      class="form-control mb-1"
+    ></textarea>
+    <button v-if="editing" v-on:click="createCard" class="btn btn-primary">
+      Add
+    </button>
+    <a v-if="editing" v-on:click="editing = false">Cancel</a>
   </div>
 </template>
 
 <script>
-
-import Rails from '@rails/ujs';
-import draggable from 'vuedraggable';
-import card from 'components/card';
+import Rails from '@rails/ujs'
+import draggable from 'vuedraggable'
+import card from 'components/card'
 
 export default {
   components: { card, draggable },
-  props: ["list"],
+  props: ['list'],
 
-  data: function() {
+  data: function () {
     return {
       editing: false,
-      message: ""
+      message: '',
     }
   },
 
   methods: {
-
-    startEditing: function() {
+    startEditing: function () {
       this.editing = true
-      this.$nextTick(() => { this.$refs.message.focus() })
+      this.$nextTick(() => {
+        this.$refs.message.focus()
+      })
     },
 
-    cardMoved: function(event){
+    cardMoved: function (event) {
       const evt = event.added || event.moved
-      if (evt == undefined) { return }
+      if (evt == undefined) {
+        return
+      }
 
       const element = evt.element
       const list_index = window.store.lists.findIndex((list) => {
@@ -48,43 +67,45 @@ export default {
         })
       })
 
-      var data = new FormData
-      data.append("card[list_id]", window.store.lists[list_index].id)
-      data.append("card[position]", evt.newIndex + 1)
+      var data = new FormData()
+      data.append('card[list_id]', window.store.lists[list_index].id)
+      data.append('card[position]', evt.newIndex + 1)
 
       Rails.ajax({
         beforeSend: () => true,
         url: `cards/${element.id}/move`,
-        type: "PATCH",
+        type: 'PATCH',
         data: data,
-        dataType: "json",
+        dataType: 'json',
       })
     },
 
-    createCard: function() {
-      var data = new FormData
-      data.append("card[list_id]", this.list.id)
-      data.append("card[name]", this.message)
+    createCard: function () {
+      var data = new FormData()
+      data.append('card[list_id]', this.list.id)
+      data.append('card[name]', this.message)
 
       Rails.ajax({
         beforeSend: () => true,
-        url: "/cards",
-        type: "POST",
+        url: '/cards',
+        type: 'POST',
         data: data,
-        dataType: "json",
+        dataType: 'json',
         success: (data) => {
-          this.message = ""
-          this.$nextTick(() => { this.$refs.message.focus() })
-        }
+          this.message = ''
+          this.$nextTick(() => {
+            this.$refs.message.focus()
+          })
+        },
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
 /* Min-height for empty column */
-  .dragArea {
-    min-height: 15px;
-  }
+.dragArea {
+  min-height: 15px;
+}
 </style>
