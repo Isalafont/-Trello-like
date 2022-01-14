@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @click="editing=true" class="card card-body mb-3">
+    <div @click="editing=true" class="card card-body text-wrap mb-3">
       {{ card.name }}
     </div>
 
