@@ -1,5 +1,5 @@
 <template>
-  <div class="scrolling-board">
+  <div class="list-wrapper">
     <draggable
       v-model="lists"
       v-bind="{ group: 'lists' }"
@@ -102,20 +102,28 @@ p {
   min-height: 10px;
 }
 
-.scrolling-board {
+.list-wrapper {
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0 4px;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
 
+.list-wrapper:first-child {
+  margin-left: 12px;
+}
+
 .list {
+  background: #e2e4e6;
+  border-radius: 3px;
   display: inline-block;
-  vertical-align: top;
-  width: 270px;
+  height: 100%;
   margin: 10px 10px;
   padding: 10px;
-  border-radius: 3px;
-  background: #e2e4e6;
+  vertical-align: top;
+  width: 272px;
 }
 </style>
