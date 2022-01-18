@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :cards do
     member do
+      post :attach
       patch :move
     end
   end
