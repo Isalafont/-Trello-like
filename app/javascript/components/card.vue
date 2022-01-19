@@ -14,7 +14,7 @@
             <h5 class="modal-title">{{ card.title }}</h5>
           </div>
           <div class="modal-body">
-            <input v-model="name" class="form-control"></input>
+            <input v-model="title" id="editor" class="form-control"></input>
           </div>
           <div class="modal-footer">
             <button @click="save" type="button" class="btn btn-primary">Save changes</button>
