@@ -1,7 +1,7 @@
 <template>
   <div>
     <div @click="editing=true" class="card card-body text-wrap mb-3">
-      {{ card.name }}
+      {{ card.title }}
     </div>
 
     <!-- Modal Editing card -->
@@ -11,7 +11,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">{{ card.name }}</h5>
+            <h5 class="modal-title">{{ card.title }}</h5>
           </div>
           <div class="modal-body">
             <input v-model="name" class="form-control"></input>
@@ -34,7 +34,7 @@
     data: function() {
       return {
         editing: false,
-        name: this.card.name,
+        title: this.card.title,
       }
     },
 
@@ -46,7 +46,7 @@
 
       save: function() {
         var data = new FormData
-        data.append("card[name]", this.name)
+        data.append("card[title]", this.title)
 
         Rails.ajax({
           beforeSend: () => true,

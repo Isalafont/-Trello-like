@@ -15,7 +15,7 @@ class CardsTest < ApplicationSystemTestCase
     click_on "New Card"
 
     fill_in "List", with: @card.list_id
-    fill_in "Name", with: @card.name
+    fill_in "Name", with: @card.title
     fill_in "Position", with: @card.position
     click_on "Create Card"
 
@@ -28,7 +28,7 @@ class CardsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "List", with: @card.list_id
-    fill_in "Name", with: @card.name
+    fill_in "Name", with: @card.title
     fill_in "Position", with: @card.position
     click_on "Update Card"
 

@@ -83,7 +83,7 @@ export default {
     createCard: function () {
       var data = new FormData()
       data.append('card[list_id]', this.list.id)
-      data.append('card[name]', this.message)
+      data.append('card[title]', this.message)
 
       Rails.ajax({
         beforeSend: () => true,
