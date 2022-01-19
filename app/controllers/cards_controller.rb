@@ -90,4 +90,8 @@ class CardsController < ApplicationController
   def card_params
     params.require(:card).permit(:list_id, :title, :position)
   end
+
+  def list_card(card)
+    List.find(@card.list_id).name
+  end
 end

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <p>
   <strong>Name:</strong>
@@ -6,18 +6,19 @@
 </p>
 
 <p>
-  <strong>Position:</strong>
+  <strong>List Position:</strong>
   <%= @list.position %>
 </p>
 
-<!-- <h2>Cards</h2>
-<#% @list.cards.each do |card| %>
+<% @list.cards.each do |card| %>
   <p>
     <strong>Card:</strong>
-    <%#= card.name %>
-    <%#= card.position %>
+    <%= card.title %>
+    <p> <strong>Card Position</strong>
+      <%= card.position %>
+    </p>
   </p>
-<#% end %> -->
+<% end %>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
