@@ -88,10 +88,6 @@ class CardsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def card_params
-    params.require(:card).permit(:list_id, :title, :position)
-  end
-
-  def list_card(card)
-    List.find(@card.list_id).name
+    params.require(:card).permit(:list_id, :title, :content, :position)
   end
 end

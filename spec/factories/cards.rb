@@ -2,7 +2,8 @@
 
 FactoryBot.define do
   factory :card do
-    name { Faker::Quote.yoda }
+    title { Faker::Quote.yoda }
     position { Faker::Number.digit }
+    content { Faker::Lorem.questions(number: 4 )}
   end
 end
