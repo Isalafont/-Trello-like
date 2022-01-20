@@ -1,13 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>List:</strong>
-  <%= @card.list %>
 </p>
+  <strong>List:</strong>
+  <%= List.find(@card.list_id).name %>
+<p>
 
 <p>
   <strong>Name:</strong>
-  <%= @card.name %>
+  <%= @card.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @card.content %>
 </p>
 
 <p>

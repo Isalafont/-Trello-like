@@ -74,6 +74,11 @@ class CardsController < ApplicationController
     render action: :show
   end
 
+  def attach
+    attachment = Attachment.create!(image: params[:image])
+    render json: { filename: url_for(attachment.image)}
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -83,6 +88,6 @@ class CardsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def card_params
-    params.require(:card).permit(:list_id, :name, :position)
+    params.require(:card).permit(:list_id, :title, :content, :position)
   end
 end

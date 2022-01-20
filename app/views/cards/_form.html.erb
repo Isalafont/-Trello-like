@@ -5,8 +5,8 @@
 
   <div class="form-inputs">
     <%= f.association :list %>
-    <%= f.input :name %>
-    <%= f.input :position %>
+    <%= f.input :title, as: :string, id: "editor" %>
+    <%= f.input :content, as: :text, id: "editor" %>
   </div>
 
   <div class="form-actions">

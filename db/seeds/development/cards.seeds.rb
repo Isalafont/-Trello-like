@@ -2,8 +2,6 @@
 
 after 'development:users', 'development:lists' do
   2.times do |card|
-    card = Card.create!(list_id: List.last.id, name: Faker::Quote.yoda )
+    card = Card.create!(list_id: List.last.id, content: Faker::Lorem.questions(number:3), title: Faker::Quotes::Shakespeare.hamlet_quote)
   end
-
-  puts "Created #{Card.count} cards into #{List.last.name} list with position #{List.last.position}"
 end
