@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'acts_as_list'
 gem 'autoprefixer-rails'
 gem 'bootstrap', '~> 5.0.0.beta2'
+gem 'colorize', '0.8.1'
 gem 'devise'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'inline_svg', '~> 1.7', '>= 1.7.2'

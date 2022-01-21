@@ -15,6 +15,7 @@
     <% @cards.each do |card| %>
       <tr>
         <td><%= List.find(card.list_id).name %></td>
+        <td><%= List.cards.name %></td>
         <td><%= card.title %></td>
         <td><%= card.content %></td>
         <td><%= card.position %></td>
