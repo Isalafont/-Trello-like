@@ -6,6 +6,6 @@ FactoryBot.define do
     city { Faker::Address.city }
     country { Faker::Address.country }
     bio { Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 5) }
-    user { User.first.id }
+    user_id { create(:user) }
   end
 end

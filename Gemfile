@@ -47,14 +47,17 @@ group :development, :test do
   gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 
 end
 
 group :development do
+  gem 'bundler-audit', '0.9.0.1'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rubocop-rails', '2.12.4'
+  gem 'rubocop-rake', '0.6.0'
+  gem 'rubocop-rspec', '2.6.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
@@ -64,6 +67,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
+  gem 'rspec-rails', '5.0.2'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'

@@ -5,12 +5,13 @@ require 'rails_helper'
 RSpec.describe List, type: :model do
   it 'is invalid without a name' do
     list = List.new(name: nil)
-    expect(list).to_not be_valid
+    list.valid?
+    expect(list.errors[:name]).to include("can't be blank")
   end
 
   it 'is valid with a name' do
-    list = List.new(name: 'Anything')
-
+    list = List.new(name: 'Backlog')
+    list.valid?
     expect(list).to be_valid
   end
 
@@ -18,7 +19,7 @@ RSpec.describe List, type: :model do
     expect(FactoryBot.build(:list)).to be_valid
   end
 
-  xit 'is valid with a position attribute'
-
-  xit { should have_many(:cards) }
+  it 'should have_many cards' do
+    expect(FactoryBot.build(:list)).to be_valid
+  end
 end
