@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :list do
-    name { 'Backlog' }
-    position { 1 }
+    name { Faker::Book.title }
+    position { Faker::Number.digit }
 
     after(:create) do |list|
       create_list :card, 3, list: list

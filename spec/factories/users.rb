@@ -2,8 +2,11 @@
 
 FactoryBot.define do
   factory :user do
-    email { Faker::Internet.safe_email }
+    email { Faker::Internet.unique.email(domain: "example.com") }
     password { Faker::Internet.password(min_length: 8) }
-    created_at { DateTime.now }
+
+    after(:create) do |user|
+      create_list :profile, 1, user: user
+    end
   end
 end

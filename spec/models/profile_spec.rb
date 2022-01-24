@@ -2,11 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
 
-  # it { is_expected.to validate_length_of(:first_name) }
-  # it { is_expected.to validate_length_of(:last_name) }
-  # it { is_expected.to validate_length_of(:username) }
-  # it { is_expected.to validate_uniqueness_of(:username) }
-
   it 'is invalid without a first_name' do
     profile = FactoryBot.build(:profile, first_name: nil)
     profile.valid?
@@ -26,20 +21,20 @@ RSpec.describe Profile, type: :model do
   end
 
   it 'is invalid with a duplicate username' do
-    @user_id = FactoryBot.create(:user, id: 1)
-    FactoryBot.create(:profile, username: 'kenobi', user_id: @user_id)
-    @user_id2 = FactoryBot.create(:user, id: 1)
-    username = FactoryBot.build(:profile, username: 'kenobi', user_id: @user_id2)
-    username.valid?
-    expect(profile.errors[:username]).to include("has already been taken")
+    @user = FactoryBot.create(:user)
+    username_1 = FactoryBot.create(:profile, username: "kenobi", user_id: @user.id)
+    @user2 = FactoryBot.create(:user)
+    username_2 = Profile.new(username: "kenobi", user_id: @user2.id)
+    username_2.valid?
+    expect(username_2.errors[:username]).to include("has already been taken")
   end
 
   it 'is valid with a first name, last name, username ' do
-    @user_id = FactoryBot.create(:user, id: 1)
-    profile = FactoryBot.build(:profile, user_id: @user_id)
+    @user = FactoryBot.create(:user)
+    # profile = FactoryBot.create(:profile, user_id: @user.id)
+    profile = Profile.find_by(user_id: @user.id)
     profile.valid?
     expect(profile).to be_valid
   end
 
-    
 end

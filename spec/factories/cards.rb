@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :card do
     title { Faker::Book.title }
-    position { 1 }
+    position { Faker::Number.digit }
     content { Faker::Lorem.questions(number: 4 )}
   end
 end

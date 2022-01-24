@@ -20,6 +20,7 @@ RSpec.describe List, type: :model do
   end
 
   it 'should have_many cards' do
-    expect(FactoryBot.build(:list)).to be_valid
+    list = FactoryBot.create(:list)
+    expect(list.cards.count).to eq(3)
   end
 end
