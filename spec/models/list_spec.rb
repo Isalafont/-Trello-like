@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe List, type: :model do
   it 'is invalid without a name' do
-    list = List.new(name: nil)
+    list = FactoryBot.build(:list, name: nil)
     list.valid?
     expect(list.errors[:name]).to include("can't be blank")
   end
 
   it 'is valid with a name' do
-    list = List.new(name: 'Backlog')
+    list = FactoryBot.build(:list, name: 'Backlog')
     list.valid?
     expect(list).to be_valid
   end
