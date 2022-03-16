@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddContentToCards < ActiveRecord::Migration[6.1]
   def change
     add_column :cards, :content, :text

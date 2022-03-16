@@ -10,7 +10,8 @@ RSpec.describe Card, type: :model do
   end
 
   it 'is valid with a title' do
-    card = FactoryBot.build(:card, title: 'Backlog')
+    list = FactoryBot.build(:list)
+    card = FactoryBot.build(:card, title: 'Backlog', list_id: list.id)
     card.valid?
     expect(card).to be_valid
   end

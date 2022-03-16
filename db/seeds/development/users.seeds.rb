@@ -5,7 +5,6 @@ User.destroy_all
 after do
   return unless User.count.zero?
 
-  domain = Faker::Internet.domain_name(domain: "example")
   email = Faker::Internet.safe_email
   password = Faker::Internet.password(min_length: 8)
   

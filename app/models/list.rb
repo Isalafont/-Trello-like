@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class List < ApplicationRecord
   acts_as_list
 
