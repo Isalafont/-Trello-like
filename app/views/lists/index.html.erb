@@ -1,6 +1,3 @@
-
-<p id="notice"><%= notice %></p>
-
 <div class="mt-5">
   <%= tag.div id: :boards, data: { lists: @lists.to_json(include: :cards) } %>
 </div>

@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :list do
-    name { Faker::Movies::StarWars.planet }
+    name { Faker::Book.title }
     position { Faker::Number.digit }
 
     after(:create) do |list|

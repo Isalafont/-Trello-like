@@ -2,8 +2,15 @@
 
 FactoryBot.define do
   factory :card do
-    title { Faker::Quote.yoda }
+    list
+
+    before(:create) do |card|
+      create(:list)
+    end
+
+    title { Faker::Book.title }
     position { Faker::Number.digit }
     content { Faker::Lorem.questions(number: 4 )}
+    list_id { list.id }
   end
 end
