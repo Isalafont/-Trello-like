@@ -2,17 +2,12 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'bin/**/*'
-    - 'db/**/*'
+    - 'db/schema.rb'
     - 'config/**/*'
     - 'node_modules/**/*'
-    - 'script/**/*'
-    - 'support/**/*'
-    - 'tmp/**/*'
-    - 'test/**/*'
+    - 'vendor/**/*'
 
 Style/ConditionalAssignment:
-  Enabled: false
-Style/StringLiterals:
   Enabled: false
 Style/RedundantReturn:
   Enabled: false
@@ -21,6 +16,10 @@ Style/Documentation:
 Style/WordArray:
   Enabled: false
 Metrics/AbcSize:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/BlockLength:
   Enabled: false
 Style/MutableConstant:
   Enabled: false

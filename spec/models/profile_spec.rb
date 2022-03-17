@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
-
   it 'is invalid without a first_name' do
     profile = FactoryBot.build(:profile, first_name: nil)
     profile.valid?
@@ -42,5 +41,4 @@ RSpec.describe Profile, type: :model do
     profile.valid?
     expect(profile.errors[:username]).to include("is too short (minimum is 3 characters)")
   end
-
 end

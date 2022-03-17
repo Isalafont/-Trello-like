@@ -7,7 +7,7 @@ after do
 
   email = Faker::Internet.safe_email
   password = Faker::Internet.password(min_length: 8)
-  
+
   user = User.create!(email: email,
                       password: password,
                       created_at: DateTime.now)

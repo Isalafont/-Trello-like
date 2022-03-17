@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Profile.destroy_all
 
 after 'development:users' do
@@ -16,6 +17,9 @@ after 'development:users' do
                             country: country,
                             bio: bio,
                             user_id: User.first.id)
-  
-  puts "#{'USER'.colorize(:green)}: #{User.first.id.to_s.colorize(:cyan)}, first name: #{profile.first_name.colorize(:cyan)}, last name: #{profile.last_name.colorize(:cyan)}, username: #{profile.username.colorize(:cyan)}."
+
+  puts "#{'USER'.colorize(:green)}: #{User.first.id.to_s.colorize(:cyan)},
+          first name: #{profile.first_name.colorize(:cyan)},
+          last name: #{profile.last_name.colorize(:cyan)},
+          username: #{profile.username.colorize(:cyan)}."
 end
