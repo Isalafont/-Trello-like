@@ -10,7 +10,7 @@ FactoryBot.define do
 
     title { Faker::Book.title }
     position { Faker::Number.digit }
-    content { Faker::Lorem.questions(number: 4 )}
+    content { Faker::Lorem.questions(number: 4) }
     list_id { list.id }
   end
 end

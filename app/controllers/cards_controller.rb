@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   # Uncomment line bellow to skip authentication
   # skip_before_action :authenticate_user!, raise: false
-  before_action :set_card, only: [:show, :edit, :update, :destroy, :move]
+  before_action :set_card, only: %i[show edit update destroy move]
 
   # GET /cards
   # GET /cards.json
@@ -29,9 +29,7 @@ class CardsController < ApplicationController
     @card = Card.new(card_params)
     respond_to do |format|
       if @card.save
-
         ActionCable.server.broadcast "board", { commit: 'addCard', payload: render_to_string(:show, formats: [:json]) }
-
         format.html { redirect_to @card, notice: 'Card was successfully created.' }
         format.json { render :show, status: :created, location: @card }
       else
@@ -76,7 +74,7 @@ class CardsController < ApplicationController
 
   def attach
     attachment = Attachment.create!(image: params[:image])
-    render json: { filename: url_for(attachment.image)}
+    render json: { filename: url_for(attachment.image) }
   end
 
   private

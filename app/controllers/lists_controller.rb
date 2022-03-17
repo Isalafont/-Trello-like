@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   # Uncomment line bellow to skip authentication
   # skip_before_action :authenticate_user!, raise: false
-  before_action :set_list, only: [:show, :edit, :update, :destroy, :move]
+  before_action :set_list, only: %i[show edit update destroy move]
 
   # GET /lists
   # GET /lists.json
@@ -27,11 +27,9 @@ class ListsController < ApplicationController
   # POST /lists.json
   def create
     @list = List.new(list_params)
-
     respond_to do |format|
       if @list.save
         ActionCable.server.broadcast "board", { commit: 'addList', payload: render_to_string(:show, formats: [:json]) }
-
         format.html { redirect_to @list, notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
       else
