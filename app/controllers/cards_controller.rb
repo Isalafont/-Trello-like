@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CardsController < ApplicationController
   # Uncomment line bellow to skip authentication
   # skip_before_action :authenticate_user!, raise: false
@@ -11,8 +13,7 @@ class CardsController < ApplicationController
 
   # GET /cards/1
   # GET /cards/1.json
-  def show
-  end
+  def show; end
 
   # GET /cards/new
   def new
@@ -20,8 +21,7 @@ class CardsController < ApplicationController
   end
 
   # GET /cards/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cards
   # POST /cards.json
