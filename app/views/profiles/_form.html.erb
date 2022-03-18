@@ -1,0 +1,10 @@
+<%# url: {action: 'update'}  %>
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.input :first_name, label: "First Name" %>
+  <%= f.input :last_name, label: "Last Name" %>
+  <%= f.input :username, label: "Username" %>
+  <%= f.input :city, label: "City" %>
+  <%= f.input :country, as: :select, label: "Country" %>
+  <%= f.input :bio, as: :text, label: "Bio"%>
+  <%= f.submit "Update Profile" %>
+<% end %>

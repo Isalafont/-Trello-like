@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Profile < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, required: true, autosave: true
 
   validates :first_name, :last_name, :username, presence: true
   validates :username, length: { minimum: 3 }

@@ -1,2 +1,10 @@
-<h1>Profiles#new</h1>
-<p>Find me in app/views/profiles/new.html.erb</p>
+<div class="wrapper">
+  <div class="devise shadow-icon">
+    <div class="devise-title text-center">
+      <h2>New Profile</h2>
+    </div>
+    <%= render "form" %>
+    <hr>
+    <%= link_to 'Back', profiles_path  %>
+  </div>
+</div>

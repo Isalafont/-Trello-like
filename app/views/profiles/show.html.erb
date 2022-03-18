@@ -1,2 +1,17 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="wrapper">
+  <div class="devise shadow-icon">
+    <div class="devise-title text-center">
+      <h2><%= @profile.username %>e</h2>
+    </div>
+      <table class="table table-bordered">
+        <tr>
+          <td><%= @profile.first_name %></td>
+          <td><%= @profile.last_name %></td>
+          <td><%= @profile.username %></td>
+          <td><%= @profile.city %></td>
+          <td><%= @profile.country %></td>
+          <td><%= @profile.bio %></td>
+          </tr>
+      </table>
+  </div>
+</div>
