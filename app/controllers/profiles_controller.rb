@@ -4,9 +4,9 @@ class ProfilesController < ApplicationController
   # skip_before_action :authenticate_user!, raise: false
   before_action :find_profile, only: [:show]
   before_action :set_current_user_profil, only: [:edit, :update]
-  
+
   def show; end
-  
+
   def edit; end
 
   def update
@@ -20,13 +20,13 @@ class ProfilesController < ApplicationController
       end
     end
   end
-  
+
   private
 
   def find_profile
     @profile = Profile.find(params[:id])
   end
-  
+
   def set_current_user_profil
     @profile = current_user.profile
   end
@@ -36,6 +36,7 @@ class ProfilesController < ApplicationController
       :first_name,
       :last_name,
       :username,
-      :bio)
+      :bio
+    )
   end
 end
